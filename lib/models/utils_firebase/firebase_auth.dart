@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
-    dynamic user;
-    String userEmail;
-    String userPhoneNumber;
+dynamic user;
+String userEmail;
+String userPhoneNumber;
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
@@ -12,7 +12,7 @@ Future<String> signInWithGoogle() async {
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
   final GoogleSignInAuthentication googleSignInAuthentication =
       await googleSignInAccount.authentication;
- final AuthCredential credential = GoogleAuthProvider.getCredential(
+  final AuthCredential credential = GoogleAuthProvider.getCredential(
     accessToken: googleSignInAuthentication.accessToken,
     idToken: googleSignInAuthentication.idToken,
   );
@@ -29,13 +29,14 @@ Future<String> signInWithGoogle() async {
   return 'signInWithGoogle succeeded: $user';
 }
 
-void signOutGoogle() async{
+void signOutGoogle() async {
   await googleSignIn.signOut();
 
   print("User Sign Out");
 }
+
 void getCurrentUserInfo() async {
-      user = await _auth.currentUser();
-      userEmail = user.email;
-      userPhoneNumber = user.phoneNumber;
-      }
+  user = await _auth.currentUser();
+  userEmail = user.email;
+  userPhoneNumber = user.phoneNumber;
+}

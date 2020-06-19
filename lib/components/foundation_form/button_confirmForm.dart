@@ -13,6 +13,7 @@ class ButtonConfirmForm extends StatelessWidget {
         ),
         alignment: Alignment.bottomRight,
         child: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
           onPressed: onPressedFunction,
           child: Icon(Icons.keyboard_arrow_right),
         ));

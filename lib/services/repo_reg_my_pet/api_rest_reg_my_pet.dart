@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:petsaojoao/screens/reg_my_pet/my_pet_info_first.dart';
-import 'package:petsaojoao/screens/register_tutor/end_register_tutor.dart';
+import 'package:petsaojoao/screens/register_tutor/contact_info.dart';
 import 'dart:async';
 import '../base_url.dart';
 
@@ -32,21 +32,10 @@ class ApiRestRegMyPet {
     );
 
     List<dynamic> resp = jsonDecode(response.body);
-    //print(resp);
     return resp;
   }
 
   static Future<List> getCoatColors() async {
-    //var url = BASE_URL + "/coatColor";
-    // print(url);
-    // var header = {"Accept": "application/json"};
-    // final http.Response response = await http.get(
-    // url,
-    // headers: header,
-    // );
-
-    // List<dynamic> resp = jsonDecode(response.body);
-
     List<dynamic> resp = [
       {'id': 1, 'name': "Branco"},
       {'id': 2, 'name': "Preto"}
@@ -67,7 +56,7 @@ class ApiRestRegMyPet {
     String microchipSerial,
   ) async {
     print("to aqui");
-    var _idTutor = EndRegisterTutor().getId();
+    var _idTutor = ContactInfo().getId();
 
     var url = BASE_URL + "/tutors" + "/$_idTutor" + "/pets";
     print(url);

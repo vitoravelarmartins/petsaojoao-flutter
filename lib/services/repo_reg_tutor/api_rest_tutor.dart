@@ -59,15 +59,6 @@ class ApiRestTutor {
         debugPrint(resp['id'].toString());
         var _id = resp['id'].toString();
         var _email = resp['email'].toString();
-        // StandardTutor().setId(int.parse(_id));
-
-        // print('Response  ID...............: ${response.id}');
-
-        //Map mapResponse = json.decode(response.body);
-
-        //String mensagem = mapResponse["message"];
-
-        //print("message $mensagem");
         return StandardTutor(int.parse(_id), _email);
       } else {
         return null;

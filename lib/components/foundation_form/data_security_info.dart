@@ -4,38 +4,10 @@ class DataSecurityInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        left: 15,
-      ),
       child: Row(children: <Widget>[
         FlatButton(
             onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                        title: Center(
-                            child: Column(children: [
-                          Icon(
-                            Icons.info,
-                            size: 30,
-                            color: Colors.green,
-                          ),
-                          Text("Importância dos dados "),
-                        ])),
-                        content: Text(
-                          "É muito importante informar todos os dados possíveis do seu Pet para que possamos tomar todas as medidas possíveis em caso de perda.",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                        actions: <Widget>[
-                          FlatButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text("ok"),
-                          ),
-                        ],
-                      ),
-                  barrierDismissible: true);
+              AlertInfo().showAlert(context);
             },
             child: Container(
               height: 30,
@@ -58,4 +30,40 @@ class DataSecurityInfo extends StatelessWidget {
       ]),
     );
   }
+}
+
+class AlertInfo {
+  var icon = Icons.info;
+  var title = "Importância dos dados";
+  var content =
+      "É muito importante informar todos os dados possíveis, para ajudar localizar seu Pet.";
+  void showAlert(context) => showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+            title: Center(
+                child: Column(children: [
+              Icon(
+                icon,
+                size: 30,
+                color: Colors.green,
+              ),
+              Text(
+                title,
+                style: TextStyle(fontSize: 15),
+              ),
+            ])),
+            content: Text(
+              content,
+              style: TextStyle(color: Colors.black54),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("ok"),
+              ),
+            ],
+          ),
+      barrierDismissible: true);
 }
