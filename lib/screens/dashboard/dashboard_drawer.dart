@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:petsaojoao/screens/register_tutor/personal_info.dart';
-import 'package:petsaojoao/screens/register_tutor/register_tutor.dart';
 import 'constants.dart' as Constants;
 
 class DashboardDrawer extends StatelessWidget {
